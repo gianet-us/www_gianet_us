@@ -1,0 +1,58 @@
+name: Build Docusaurus
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: 'recursive'
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update Submodules to Latest Main
+        run: git submodule update --remote --checkout
+
+      - name: Sync Submodule Docs
+        run: |
+          chmod +x ./sync-docs.sh
+          ./sync-docs.sh
+
+      - name: Build Docusaurus
+        run: |
+          npm install
+          npm run build
+
+      - name: Setup Pages
+        if: github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: 'build'
+
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Push Submodule Updates to Main
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .gitmodules $(git submodule foreach --quiet 'echo $path')
+          git diff --cached --quiet || git commit -m "ci: update submodules to latest main"
+          git push origin HEAD:main

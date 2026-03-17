@@ -1,0 +1,11 @@
+[submodule "external/ansible_role_proxy"]
+	path = external/ansible_role_proxy
+	url = https://github.com/gianet-us/ansible_role_proxy.git
+	branch = main
+  shallow = true
+
+[submodule "external/ansible_role_mail"]
+	path = external/ansible_role_mail
+	url = https://github.com/gianet-us/ansible_role_mail.git
+	branch = main
+  shallow = true
