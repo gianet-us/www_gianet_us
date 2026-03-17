@@ -40,11 +40,11 @@ const config: Config = {
       'classic',
       {
         docs: {
+          include: ['**/*.{md,mdx}'],
+          // Some versions require this specific flag in the plugin options:
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
@@ -64,6 +64,7 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        
       } satisfies Preset.Options,
     ],
   ],
@@ -79,7 +80,7 @@ const config: Config = {
       logo: {
         alt: 'GiaNet Logo',
         src: 'img/gn-logo-blue-100.webp',
-        srcDark: 'img/gn-logo-white.webp'
+        srcDark: 'img/gn-logo-white-100.webp'
       },
       items: [
         {
@@ -88,12 +89,7 @@ const config: Config = {
           position: 'left',
           label: 'Tutorial',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/gianet-us/www_gianet_us',
-          label: 'GitHub',
-          position: 'right',
-        },
+        {to: '/blog', label: 'Blog', position: 'left'}
       ],
     },
     footer: {
@@ -114,15 +110,7 @@ const config: Config = {
             {
               label: 'Stack Overflow',
               href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
+            }
           ],
         },
         {
@@ -132,14 +120,10 @@ const config: Config = {
               label: 'Blog',
               to: '/blog',
             },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Giacchetta Networks LLC. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

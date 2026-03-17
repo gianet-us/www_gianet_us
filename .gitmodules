@@ -1,0 +1,4 @@
+[submodule "external/ansible_role_proxy"]
+	path = external/ansible_role_proxy
+	url = https://github.com/gianet-us/ansible_role_proxy.git
+	branch = main
