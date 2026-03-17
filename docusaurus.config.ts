@@ -23,7 +23,7 @@ function getDocFooterItems(max = 5) {
 const config: Config = {
   title: 'Giacchetta Networks',
   tagline: '',
-  favicon: 'img/rounded-80.webp',
+  favicon: 'img/gn-icon-rounded-80.webp',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {

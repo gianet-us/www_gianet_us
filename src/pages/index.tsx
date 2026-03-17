@@ -297,6 +297,49 @@ function EmailModal({open, onClose}: {open: boolean; onClose: () => void}) {
 
 /* ── Section data ───────────────────────────────────────────────────────────── */
 
+type ProjectItem = {
+  logo: string;
+  logoAlt: string;
+  region: string;
+  title: string;
+  url: string;
+  description: string;
+  ctaText: string;
+};
+
+const projects: ProjectItem[] = [
+  {
+    logo: '/img/codyops-white-transparent.png',
+    logoAlt: 'CodyOps Latin America',
+    region: 'Latin America',
+    title: 'CodyOps Americas',
+    url: 'https://www.codyops.com',
+    description:
+      'An educational ecosystem empowering Latin America through specialized training in programming and advanced IT operations since 2022.',
+    ctaText: 'Visit CodyOps',
+  },
+  {
+    logo: '/img/codyops-white-transparent.png',
+    logoAlt: 'CodyOps Brazil',
+    region: 'Brazil',
+    title: 'CodyOps Brazil',
+    url: 'https://www.codyops.com.br',
+    description:
+      'CodyOps tailored for Brazil — high-quality curriculum in Portuguese, built to empower Brazilian tech professionals in IT operations.',
+    ctaText: 'Visit CodyOps Brazil',
+  },
+  {
+    logo: '/img/codyops-white-transparent.png',
+    logoAlt: 'CodyOps Spain',
+    region: 'Spain',
+    title: 'CodyOps Spain',
+    url: 'https://www.codyops.com.es',
+    description:
+      'CodyOps for Spain — specialized programming and IT operations training for Spanish professionals looking to grow their careers.',
+    ctaText: 'Visit CodyOps Spain',
+  },
+];
+
 type ServiceItem = {
   icon: ReactNode;
   title: string;
@@ -348,7 +391,7 @@ function HeroSection({onContact}: {onContact: () => void}) {
         </Heading>
         <p className={styles.heroSub}>
           Reliable infrastructure, modern tooling, and expert consulting —{' '}
-          <strong>for your projects and ours.</strong>
+          <strong>make your projects great again.</strong>
         </p>
         <EmailCanvas onClick={onContact} />
         <div className={styles.heroCta}>
@@ -436,51 +479,52 @@ function StatsSection() {
   );
 }
 
-function CodyOpsSection() {
+function ProjectsSection() {
   const ref = useFadeIn<HTMLElement>();
   return (
-    <section ref={ref} className={clsx(styles.codyOpsSection, styles.fadeIn)}>
+    <section ref={ref} className={clsx(styles.projectsSection, styles.fadeIn)}>
       <div className="container">
-        <div className={styles.codyOpsCard}>
-          <div className={styles.codyOpsGlow} aria-hidden="true" />
-          <div className={styles.codyOpsLayout}>
-            <div className={styles.codyOpsLogoWrap}>
-              <img
-                src="/img/codyops-white-transparent.png"
-                alt="CodyOps"
-                className={styles.codyOpsLogo}
-                loading="lazy"
-              />
+        <div className={styles.sectionHead}>
+          <span className={styles.pillDark}>Projects</span>
+          <Heading as="h2" className={styles.sectionTitle}>
+            Our Projects
+          </Heading>
+          <p className={styles.sectionSub}>
+            Open source and educational initiatives built and maintained by GiaNet.
+          </p>
+        </div>
+        <div className={styles.projectGrid}>
+          {projects.map((project) => (
+            <div key={project.title} className={styles.projectCard}>
+              <div className={styles.projectGlow} aria-hidden="true" />
+              <div className={styles.projectCardInner}>
+                <div className={styles.projectLogoWrap}>
+                  <img
+                    src={project.logo}
+                    alt={project.logoAlt}
+                    className={styles.projectLogo}
+                    loading="lazy"
+                  />
+                </div>
+                <span className={styles.projectBadge}>{project.region}</span>
+                <Heading as="h3" className={styles.projectTitle}>
+                  {project.title}
+                </Heading>
+                <p className={styles.projectDesc}>{project.description}</p>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={clsx('button', styles.btnProject)}>
+                  {project.ctaText}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="15" height="15">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </a>
+              </div>
             </div>
-            <div className={styles.codyOpsBody}>
-              <span className={styles.codyOpsBadge}>Featured Project</span>
-              <Heading as="h2" className={styles.codyOpsTitle}>
-                CodyOps
-              </Heading>
-              <p className={styles.codyOpsDesc}>
-                CodyOps is an educational ecosystem dedicated to empowering
-                Latin America through specialized training in programming and
-                advanced IT operations. Since our launch in 2022, we have
-                focused on bridging the gap in Computer Engineering by
-                delivering high-quality curricula backed by years of experience.
-              </p>
-              <p className={styles.codyOpsMission}>
-                Our motivation stems from a singular goal: becoming a partner in
-                your journey and unlocking your professional potential.
-              </p>
-              <a
-                href="https://codyops.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={clsx('button button--lg', styles.btnCodyOps)}>
-                Visit CodyOps
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </a>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -499,7 +543,7 @@ export default function Home(): ReactNode {
       <main>
         <ServicesSection />
         <StatsSection />
-        <CodyOpsSection />
+        <ProjectsSection />
       </main>
       <EmailModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </Layout>

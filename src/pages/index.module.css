@@ -620,61 +620,72 @@
   }
 }
 
-/* ── CodyOps showcase ────────────────────────────────────────────────────── */
+/* ── Projects showcase ───────────────────────────────────────────────────── */
 
-.codyOpsSection {
+.projectsSection {
   padding: 6rem 0;
 }
 
-.codyOpsCard {
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.projectCard {
   position: relative;
   overflow: hidden;
   border-radius: 20px;
   background: #0b1120;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
 }
 
-.codyOpsGlow {
+.projectCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.45);
+}
+
+.projectGlow {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(46, 133, 85, 0.2), transparent 55%),
-    radial-gradient(ellipse at 80% 80%, rgba(91, 33, 182, 0.12), transparent 50%);
+    radial-gradient(ellipse at 50% 0%, rgba(46, 133, 85, 0.18), transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(91, 33, 182, 0.1), transparent 50%);
   pointer-events: none;
 }
 
-.codyOpsLayout {
+.projectCardInner {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 3rem;
-  padding: 3.5rem;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  flex: 1;
 }
 
-.codyOpsLogoWrap {
-  flex-shrink: 0;
+.projectLogoWrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 220px;
-  height: 220px;
-  border-radius: 24px;
+  width: 110px;
+  height: 110px;
+  border-radius: 22px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1.5rem;
 }
 
-.codyOpsLogo {
-  width: 160px;
-  height: 160px;
+.projectLogo {
+  width: 72px;
+  height: 72px;
   object-fit: contain;
-  filter: drop-shadow(0 0 24px rgba(46, 133, 85, 0.3));
+  filter: drop-shadow(0 0 16px rgba(46, 133, 85, 0.3));
 }
 
-.codyOpsBody {
-  flex: 1;
-  min-width: 0;
-}
-
-.codyOpsBadge {
+.projectBadge {
   display: inline-block;
   padding: 0.25rem 0.85rem;
   border-radius: 999px;
@@ -685,79 +696,47 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
-.codyOpsTitle {
-  font-size: clamp(1.75rem, 4vw, 2.75rem) !important;
+.projectTitle {
+  font-size: 1.4rem !important;
   font-weight: 900;
   color: #fff !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.75rem !important;
   letter-spacing: -0.02em;
 }
 
-.codyOpsDesc {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.7;
-  margin-bottom: 0.75rem;
-}
-
-.codyOpsMission {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.85);
-  font-style: italic;
-  line-height: 1.7;
+.projectDesc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.65;
   margin-bottom: 1.75rem;
-  padding-left: 1rem;
-  border-left: 3px solid var(--ifm-color-primary);
+  flex: 1;
 }
 
-.btnCodyOps {
+.btnProject {
   display: inline-flex !important;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
   background: rgba(255, 255, 255, 0.08) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   color: #fff !important;
   border-radius: 10px !important;
   font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  padding: 0.55rem 1.1rem !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   transition: background 0.25s, border-color 0.25s, transform 0.25s !important;
   text-decoration: none !important;
+  margin-top: auto;
 }
 
-.btnCodyOps:hover {
+.btnProject:hover {
   background: rgba(255, 255, 255, 0.14) !important;
   border-color: var(--ifm-color-primary) !important;
   transform: translateY(-2px);
   color: #fff !important;
   text-decoration: none !important;
-}
-
-@media (max-width: 768px) {
-  .codyOpsLayout {
-    flex-direction: column;
-    text-align: center;
-    padding: 2.5rem 1.5rem;
-    gap: 2rem;
-  }
-
-  .codyOpsLogoWrap {
-    width: 160px;
-    height: 160px;
-  }
-
-  .codyOpsLogo {
-    width: 120px;
-    height: 120px;
-  }
-
-  .codyOpsMission {
-    border-left: none;
-    padding-left: 0;
-    border-top: 3px solid var(--ifm-color-primary);
-    padding-top: 0.75rem;
-  }
 }
