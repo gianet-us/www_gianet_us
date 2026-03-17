@@ -1,8 +1,24 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import * as fs from 'fs';
+import * as path from 'path';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+function getDocFooterItems(max = 5) {
+  const gitmodules = fs.readFileSync('.gitmodules', 'utf-8');
+  const pathMatches = [...gitmodules.matchAll(/^\s*path\s*=\s*(.+)$/gm)];
+  return pathMatches.slice(0, max).map(m => {
+    const rawName = path.basename(m[1].trim()); // e.g. "ansible_role_proxy"
+    const urlPath = rawName.replace(/_/g, '/');  // e.g. "ansible/role/proxy"
+    const label = rawName
+      .split('_')
+      .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ');                                 // e.g. "Ansible Role Proxy"
+    return { label, to: `/docs/${urlPath}/` };
+  });
+}
 
 const config: Config = {
   title: 'Giacchetta Networks',
@@ -99,12 +115,7 @@ const config: Config = {
       links: [
         {
           title: 'Docs',
-          items: [
-            {
-              label: 'Docs',
-              to: '/docs/',
-            },
-          ],
+          items: getDocFooterItems(),
         },
         {
           title: 'Community',
