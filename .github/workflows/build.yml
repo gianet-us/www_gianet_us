@@ -1,0 +1,24 @@
+name: Build Docusaurus
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: 'recursive'
+          fetch-depth: 0
+
+      - name: Update Submodules to Latest Main
+        run: git submodule update --remote --merge
+
+      - name: Sync Submodule Docs
+        run: |
+          chmod +x ./sync-docs.sh
+          ./sync-docs.sh
+
+      - name: Build Docusaurus
+        run: npm run build
