@@ -10,10 +10,9 @@ jobs:
       - uses: actions/checkout@v6
         with:
           submodules: 'recursive'
-          fetch-depth: 0
 
       - name: Update Submodules to Latest Main
-        run: git submodule update --remote --merge
+        run: git submodule update --remote --checkout
 
       - name: Sync Submodule Docs
         run: |
@@ -21,4 +20,6 @@ jobs:
           ./sync-docs.sh
 
       - name: Build Docusaurus
-        run: npm run build
+        run: |
+          npm install
+          npm run build

@@ -20,20 +20,22 @@ const config: Config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
+  trailingSlash: true,
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'gianet-us', // Usually your GitHub org/user name.
   projectName: 'www_gianet_us', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  // onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-  },
+  // i18n: {
+  //   defaultLocale: 'en',
+  //   locales: ['en'],
+  // },
 
   presets: [
     [
