@@ -105,7 +105,8 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        {to: '/blog', label: 'Blog', position: 'left'}
+        {to: '/blog', label: 'Blog', position: 'left'},
+        {type: 'custom-phone', position: 'right'},
       ],
     },
     footer: {
