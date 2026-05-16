@@ -2,3 +2,7 @@ ai-engineer:
   label: AI Engineer
   permalink: /ai-engineer
   description: AI Engineer Posts
+mcp-server:
+  label: MCP Server
+  permalink: /mcp-server
+  description: Streamable HTTP MCP Server
