@@ -1,6 +1,6 @@
 ---
 slug: stop-buying-bloated-3rd-party-software-build-what-your-architecture-actually-demands
-title: Stop buying bloated 3rd-party software. Build what your architecture actually demands.
+title: Stop buying bloated 3rd-party software. Build what your architecture actually demands
 authors: [giacchetta]
 tags: [ai-engineer, mcp-server]
 ---

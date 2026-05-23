@@ -1,6 +1,6 @@
 ---
 slug: stop-talking-about-ai-wrappers-start-talking-about-multi-agent-autonomous-routing
-title: Stop talking about AI "wrappers." Start talking about Multi-Agent Autonomous Routing.
+title: Stop talking about AI "wrappers." Start talking about Multi-Agent Autonomous Routing
 authors: [giacchetta]
 tags: [ai-engineer, mcp-server, ai-agent]
 ---
