@@ -537,7 +537,7 @@ export default function Home(): ReactNode {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <Layout
-      title="Home | Giacchetta Networks"
+      title="Home"
       description="Giacchetta Networks — IT consulting, infrastructure automation, and open source projects.">
       <HeroSection onContact={() => setModalOpen(true)} />
       <main>
