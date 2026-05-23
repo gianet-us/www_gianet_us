@@ -6,3 +6,8 @@ mcp-server:
   label: MCP Server
   permalink: /mcp-server
   description: Streamable HTTP MCP Server
+ai-agent:
+  label: AI Agent
+  permalink: /ai-agent
+  description: OpenClaw - Hermes
+  
