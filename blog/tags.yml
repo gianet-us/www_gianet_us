@@ -1,13 +1,16 @@
 ai-engineer:
   label: AI Engineer
   permalink: /ai-engineer
-  description: AI Engineer Posts
-mcp-server:
-  label: MCP Server
-  permalink: /mcp-server
+  description: AI Engineering
+ai-mcp:
+  label: AI MCP
+  permalink: /ai-mcp
   description: Streamable HTTP MCP Server
 ai-agent:
   label: AI Agent
   permalink: /ai-agent
   description: OpenClaw - Hermes
-  
+ai-seo:
+  label: AI SEO
+  permalink: /ai-seo
+  description: Boost Search Engine Optimization with AI
