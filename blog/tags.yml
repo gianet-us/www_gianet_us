@@ -14,3 +14,7 @@ ai-seo:
   label: AI SEO
   permalink: /ai-seo
   description: Boost Search Engine Optimization with AI
+ai-orcherstrator:
+  label: AI Orchestrating
+  permalink: /ai-orcherstrator
+  description: Orchestrating Autonomous Ai Systems
