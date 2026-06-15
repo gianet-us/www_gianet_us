@@ -18,3 +18,7 @@ ai-orcherstrator:
   label: AI Orchestrating
   permalink: /ai-orcherstrator
   description: Orchestrating Autonomous Ai Systems
+ai-video:
+  label: AI Video
+  permalink: /ai-video
+  description: Streamlining AI Video Production
