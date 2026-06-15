@@ -20,4 +20,4 @@ Here is exactly what was shipped and standard-issued this week:
 
 🔥 **The Master Directive**: Finalized a comprehensive Master System Prompt for our AI Agents, unlocking fully automated practice generation derived entirely from core theory.
 
-Complexity isn't an option—it's the standard. The pipeline is locked, the synchronization is flawless, and the engineering speaks for itself. Back to execution!
+Complexity isn't an option—it's the standard. The pipeline is locked, the synchronization is flawless, and the local department now runs on Gemma 4 instead of Qwen 3.5. Back to execution!
