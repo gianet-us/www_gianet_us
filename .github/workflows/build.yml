@@ -59,3 +59,21 @@ jobs:
           git add .gitmodules $(git submodule foreach --quiet 'echo $path')
           git diff --cached --quiet || git commit -m "ci: update submodules to latest main"
           git push origin HEAD:main
+
+      # This step will ONLY run if any of the previous steps failed
+      - name: Notify on Failure
+        if: failure()
+        # if: always()
+        uses: dawidd6/action-send-mail@v17
+        with:
+          server_address: ${{ secrets.PUBLIC_MAIL_SERVER }}
+          server_port: ${{ secrets.PUBLIC_MAIL_PORT }}
+          ignore_cert: true
+          username: ${{ secrets.PUBLIC_MAIL_USERNAME }}
+          password: ${{ secrets.PUBLIC_MAIL_PASSWORD }}
+          subject: Scheduled workflow "${{ github.workflow }}" has failed
+          to: ${{ secrets.PUBLIC_MAIL_TO }}
+          from: "Github Actions <${{ secrets.PUBLIC_MAIL_USERNAME }}>"
+          body: |
+            The job was automatically triggered by a ${{ github.event_name }} event
+            View the run here: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}   
