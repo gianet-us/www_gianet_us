@@ -22,3 +22,7 @@ ai-video:
   label: AI Video
   permalink: /ai-video
   description: Streamlining AI Video Production
+ai-a2a:
+  label: AI A2A
+  permalink: /ai-a2a
+  description: Agent to Agent JSON-RPC Protocol
